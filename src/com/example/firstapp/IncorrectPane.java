@@ -13,6 +13,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,42 +31,18 @@ public class IncorrectPane extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.incorrect_answer);
 		
-		// Intent intent = getIntent();
-		
-		// gridView = (GridView) findViewById(R.id.cbLayout);
-		
-		// gridView.setAdapter(new TestAdapter(getApplicationContext()));
-		// GridView gridView = new GridView (this);
-		// setContentView(gridView);
-		/*final Button answer1Button = (Button) findViewById(R.id.button4);
-		answer1Button.setOnClickListener(
+		final ImageButton checkButton = (ImageButton) findViewById(R.id.imageButton2);
+		checkButton.setOnClickListener(
 		new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				Intent userCreationIntent = new Intent(v.getContext(),OpenTestPane.class);
+				// This needs to be where we send to a page that will check the results and show a correct or incorrect view.
+				
+				Intent userCreationIntent = new Intent(v.getContext(),MainActivity.class);
 				startActivityForResult(userCreationIntent, 0);
 			}
 		});
-
-		final Button answer2Button = (Button) findViewById(R.id.button5);
-		answer2Button.setOnClickListener(
-		new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent userCreationIntent = new Intent(v.getContext(),OpenTestPane.class);
-				startActivityForResult(userCreationIntent, 0);
-			}
-		});*/
-		
-		
-		/*gridView.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView parentView, View iv, int position, long id) {
-				Toast.makeText(getApplicationContext(), ((TextView) iv.findViewById(R.id.label)).getText(), Toast.LENGTH_LONG).show();
-			}
-			
-		});*/
 	}
 	
 }

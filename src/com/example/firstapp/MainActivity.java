@@ -37,10 +37,16 @@ public class MainActivity extends Activity {
 		
 		gridView.setAdapter(new ImageAdapter(this, COURSE_NAMES));
 		
-		gridView.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView parentView, View iv, int position, long id) {
-				Toast.makeText(getApplicationContext(), ((TextView) iv.findViewById(R.id.label)).getText(), 
-						Toast.LENGTH_LONG).show();
+		gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// Class targetActivity = getTargetActivityForPosition(position);
+		        // view.this.startActivity(new Intent(OpenTestActivity.this, OpenTestPane.class));
+				Context context = view.getContext();
+	            Intent intent = new Intent(context , OpenTestPane.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+	            context.startActivity(intent);
 			}
 			
 		});
@@ -100,22 +106,26 @@ public class MainActivity extends Activity {
 			}
 		});
 		
+		final Button tfquizButton = (Button) findViewById(R.id.buttontf);
+		tfquizButton.setOnClickListener(
+		new View.OnClickListener() {
 			
-		/*final Button rbquizButton = (Button) findViewById(R.id.button3);
+			@Override
+			public void onClick(View v) {
+				Intent userCreationIntent = new Intent(v.getContext(),TFTestPane.class);
+				startActivityForResult(userCreationIntent, 0);
+			}
+		});
+		
+		final Button rbquizButton = (Button) findViewById(R.id.buttonrb);
 		rbquizButton.setOnClickListener(
 		new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				Intent userCreationIntent = new Intent(v.getContext(),OpenTestPane.class);
+				Intent userCreationIntent = new Intent(v.getContext(),RBTestPane.class);
 				startActivityForResult(userCreationIntent, 0);
 			}
 		});
-		
-		*/
-	//protected void openTest (View view) {
-		//Intent intent = new Intent(this, OpenTestPane.class);
-		//startActivity(intent);
-	//}
 	}
 }

@@ -14,6 +14,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -30,7 +31,20 @@ public class CorrectPane extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 	
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.correct_answer);	
+		setContentView(R.layout.correct_answer);
+		
+		final ImageButton checkButton = (ImageButton) findViewById(R.id.imageButton1);
+		checkButton.setOnClickListener(
+		new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// This needs to be where we send to a page that will check the results and show a correct or incorrect view.
+				
+				Intent userCreationIntent = new Intent(v.getContext(),MainActivity.class);
+				startActivityForResult(userCreationIntent, 0);
+			}
+		});
 	}
 	
 }

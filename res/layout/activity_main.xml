@@ -8,7 +8,7 @@
     <GridView
         android:id="@+id/gridView"
         android:layout_width="match_parent"
-        android:layout_height="364dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="5dp"
@@ -56,6 +56,20 @@
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:text="Answer Incorrect" 
+	    android:gravity="center"/>
+	
+	<Button
+	    android:id="@+id/buttontf"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="True/False" 
+	    android:gravity="center"/>
+	
+	<Button
+	    android:id="@+id/buttonrb"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="Radio Button" 
 	    android:gravity="center"/>
 
 </LinearLayout>
